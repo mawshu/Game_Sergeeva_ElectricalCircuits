@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 3 - Сбор схемы</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Уровень 3: Собери схему в соответствии с картинкой</h1>
+        <div class="task-container">
+            <p id="timer">Время: 60</p>
+            <div class="instructionImageContainer">
+                <img id="instructionImage" src="" alt="Образец" class="instruction-image"/>
+            </div>
+            <p id="score">Очки: 0</p>
+        </div>
+        <div class="game-area">
+            <div class="question-container">
+                <div class="circuit-container">
+                    <img id="questionImage" src="" alt="Схема" class="question-image">
+                    <div id="slot1" class="dropzone" data-slot="slot1" style="top: 50px; left: 100px;"></div>
+                    <div id="slot2" class="dropzone" data-slot="slot2" style="top: 150px; left: 200px;"></div>
+                    <div id="slot3" class="dropzone" data-slot="slot3" style="top: 250px; left: 300px;"></div>
+                </div>
+                <div id="elements" class="draggable-elements">
+                    <div id="bulb" class="draggable" draggable="true">
+                        <img src="pics/bulb.png" alt="Лампочка">
+                    </div>
+                    <div id="switch" class="draggable" draggable="true">
+                        <img src="pics/switch.png" alt="Ключ">
+                    </div>
+                    <div id="ammeter" class="draggable" draggable="true">
+                        <img src="pics/ammeter.png" alt="Ключ">
+                    </div>
+                </div>
+            </div>            
+            <button id="checkCircuit">Проверить схему</button>
+            <button id="nextQuestion">Следующий вопрос</button>
+            <button onclick="window.location.href='index.html'">На главную</button>
+        </div>
+    </div>
+    <script src="js/game.js"></script>
+    <script src="js/level3.js"></script>
+</body>
+</html>

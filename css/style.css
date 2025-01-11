@@ -1,0 +1,1102 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #c9f4ff;
+    color: #fff;
+    margin: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#player-name {
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#start-game, #view-records {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.0em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+#start-game {
+    background-color: #4caf50;
+    color: white;
+}
+
+#start-game:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#view-records {
+    background-color: #2196f3;
+    color: white;
+}
+
+#view-records:hover {
+    background-color: #1e88e5;
+    transform: scale(1.05);
+}
+
+#start-game:active, #view-records:active {
+    transform: scale(1);
+}
+
+.select-level-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#select-level {
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.level-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.level-title {
+    font-weight: bold;
+    color: #4caf50;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.container {
+    padding: 20px;
+    width: 90%;
+    max-width: 2500px;
+}
+
+#timer, #score {
+    font-weight: bold;
+    background: #fff;
+    color: #333;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#question {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #333;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.option {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+.option:active {
+    background: #388e3c;
+}
+
+#answer {
+    border: 2px solid #00000063;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e88e5;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #1976d2;
+    transform: translateY(0);
+}
+
+#clear-records {
+    background-color: #f44336;
+    margin-top: 20px;
+}
+
+#clear-records:hover {
+    background-color: #e53935;
+}
+
+#clear-records:active {
+    background-color: #d32f2f;
+}
+
+.feedback {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 20px 0;
+    display: none;
+}
+
+.feedback.correct {
+    color: #4caf50;
+}
+
+.feedback.wrong {
+    color: #f44336;
+}
+
+button.disabled, .option.disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+.instructions {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.components {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1e88e5;
+    transform: scale(1.05);
+}
+
+.task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.circuit-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+.question-image {
+    display: block;
+    border-radius: 8px;
+}
+
+.dropzone {
+    position: absolute;
+    border: 2px dashed #888;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.draggable-elements {
+    display: flex;
+    justify-content: center;
+}
+
+.draggable {
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px dashed #8a1b1b;
+}
+
+.draggable img {
+    height: auto;
+    cursor: default;
+
+}
+
+/* Адаптивность */
+  /* Мобильные телефоны (ширина до 600px) */
+  @media (max-width: 600px) {
+    h1, h2 {
+        margin: 3px;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .main-container {
+        max-width: 600px;
+    }
+
+    #player-name {
+        width: 92%;
+        padding: 10px;
+        font-size: 1.0em;
+    }
+
+    #start-game, #view-records {
+        padding: 12px;
+        font-size: 1.0em;
+    }
+
+    .select-level-container {
+        gap: 3px;
+        max-width: 600px;
+    }
+
+    #select-level {
+        width: 95%;
+        padding: 12px;
+        font-size: 1.0em;
+    }    
+
+    .level-container {
+        gap: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 90%;
+        max-width: 600px;
+    }    
+
+    .level-title {
+        font-size: 1.6em;
+    }    
+
+    #timer, #score {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 1em;
+        margin-bottom: 5px;
+    }    
+
+    #question {
+        font-size: 1.2em;
+        margin: 20px;
+    }    
+
+    .option {
+        padding: 10px 10px;
+        font-size: 1.1em;
+    }
+
+    #answer {
+        width: 75%;
+        padding: 10px;
+        font-size: 1.2em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        font-size: 1em;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .task-container {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .instructionImageContainer{
+        width: 90px; 
+        height: 90px; 
+    }
+
+    .instruction-image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .circuit-container {
+        width: 290px; 
+        margin-top: 20px;
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 70px;
+        height: 40px;
+        border-radius: 4px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 10px;
+        gap: 10px;
+    }
+    
+    .draggable {
+        width: 70px;
+        height: 30px;
+        padding-top: 10px;
+    }
+    
+    .draggable img {
+        width: 60%;
+    }
+  }
+
+
+  /* Планшеты (ширина от 601px до 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    h1, h2 {
+        margin: 3px;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .main-container {
+        max-width: 1500px;
+    }
+    
+    #player-name {
+        width: 95%;
+        padding: 10px;
+        font-size: 1.0em;
+    }
+
+    #start-game, #view-records {
+        padding: 12px;
+        font-size: 1.0em;
+    }
+
+    .select-level-container {
+        gap: 3px;
+        max-width: 690px;
+    }
+
+    #select-level {
+        width: 97%;
+        padding: 12px;
+        font-size: 1.0em;
+    }    
+
+    .level-container {
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        max-width: 1100px;
+    }    
+
+    .level-title {
+        font-size: 2em;
+    }   
+
+    #timer, #score {
+        font-size: 1.5em;
+        padding: 10px;
+        margin-bottom: 10px;
+    }  
+    
+    #question {
+        font-size: 1.7em;
+        margin: 20px;
+    }   
+
+    .option {
+        padding: 15px;
+        font-size: 1.6em;
+    }
+
+    #answer {
+        width: 75%;
+        padding: 20px;
+        font-size: 1.6em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        font-size: 1.6em;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    
+    .task-container {
+        margin-top: 15px;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .circuit-container {
+        width: 600px; 
+    }
+
+    .question-container{
+        margin-top: 30px;
+        width: 600px;  
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 120px;
+        height: 90px;
+        border-radius: 4px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 10px;
+    }
+    
+    .draggable {
+        width: 120px;
+        height: 70px;
+        padding-top: 20px;
+    }
+    
+    .draggable img {
+        width: 70%;
+    }
+  }
+
+  /* HD экраны (ширина от 1025px до 1280px) */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    h1, h2 {
+        margin-bottom: 10px;
+
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .main-container {
+        max-width: 1500px;
+    }
+
+    #player-name {
+        width: 96%;
+        padding: 10px;
+        font-size: 1.0em;
+    }
+
+    #start-game, #view-records {
+        padding: 12px;
+        font-size: 1.0em;
+    }
+
+    .select-level-container {
+        gap: 10px;
+        max-width: 700px;
+    }
+
+    #select-level {
+        width: 96%;
+        padding: 12px;
+        font-size: 1.0em;
+    }  
+    
+    .level-container {
+        gap: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        width: 90%;
+        max-width: 600px;
+    }    
+
+    .level-title {
+        font-size: 1.5em;
+    }   
+
+    #timer, #score {
+        font-size: 1.3em;
+        padding: 5px;
+        margin-bottom: 5px;
+    }    
+
+    #question {
+        font-size: 1.5em;
+        margin: 20px;
+    }   
+
+    .option {
+        padding: 15px;
+        font-size: 1.4em;
+    }
+
+    #answer {
+        width: 75%;
+        padding: 10px;
+        font-size: 1.2em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        font-size: 1.1em;
+        padding: 8px;
+        margin: 5px;
+    }
+
+    .instructionImageContainer{
+        width: 100px; 
+    }
+
+    .instruction-image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .task-container {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .circuit-container {
+        width: 300px; 
+    }
+
+    .question-container{
+        width: 300px; 
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 70px;
+        height: 40px;
+        border-radius: 4px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 10px;
+        gap: 20px;
+    }
+    
+    .draggable {
+        width: 70px;
+        height: 30px;
+        padding-top: 10px;
+    }
+    
+    .draggable img {
+        width: 60%;
+    }
+  }
+
+  /* Full HD экраны (ширина от 1281px до 1920px) */
+  @media (min-width: 1281px) and (max-width: 1920px) {
+    h1, h2 {
+        margin: 3px;
+        padding: 10px 0;
+    }
+    
+    h1 {
+        font-size: 3.1em;
+    }
+    
+    h2 {
+        font-size: 3.0em;
+    }
+
+    .main-container {
+        max-width: 1500px;
+    }
+
+    #player-name {
+        width: 96%;
+        padding: 20px;
+        font-size: 1.7em;
+    }
+
+    #start-game, #view-records {
+        padding: 20px;
+        font-size: 1.7em;
+    }
+
+    .select-level-container {
+        gap: 3px;
+        max-width: 1240px;
+    }
+
+    #select-level {
+        width: 98%;
+        padding: 20px;
+        font-size: 1.7em;
+    }    
+
+    .level-container {
+        gap: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 90%;
+        max-width: 1500px;
+    }    
+
+    .level-title {
+        font-size: 3.0em;
+    }   
+
+    #timer, #score {
+        font-size: 1.8em;
+        padding: 15px;
+        margin-bottom: 15px;
+    }  
+    
+    #question {
+        font-size: 2.0em;
+        margin: 30px;
+    }   
+
+    .option {
+        padding: 20px;
+        font-size: 1.9em;
+    }
+
+    #answer {
+        width: 90%;
+        padding: 20px;
+        font-size: 1.9em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        font-size: 1.9em;
+        padding: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    
+    .task-container {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .circuit-container {
+        width: 600px; 
+    }
+
+    .question-container{
+        width: 600px; 
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 120px;
+        height: 90px;
+        border-radius: 4px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 10px;
+        gap: 40px;
+
+    }
+    
+    .draggable {
+        width: 120px;
+        height: 70px;
+        padding-top: 20px;
+    }
+    
+    .draggable img {
+        width: 70%;
+    }
+  }
+
+  /* 2K экраны (ширина от 1921px до 2560px) */
+  @media (min-width: 1921px) and (max-width: 2560px) {
+    h1, h2 {
+        margin: 3px;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 3.7em;
+    }
+    
+    h2 {
+        font-size: 3.2em;
+    }
+
+    .main-container {
+        max-width: 1500px;
+    }
+
+    #player-name {
+        width: 97%;
+        padding: 20px;
+        font-size: 2.5em;
+    }
+
+    #start-game, #view-records {
+        padding: 20px;
+        font-size: 2.5em;
+    }
+
+    .select-level-container {
+        gap: 15px;
+        max-width: 1390px;
+    }
+
+    #select-level {
+        width: 98%;
+        padding: 20px;
+        font-size: 2.5em;
+    }    
+
+    .level-container {
+        gap: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 90%;
+        max-width: 2500px;
+    }    
+
+    .level-title {
+        font-size: 3.5em;
+    }    
+
+    #timer, #score {
+        font-size: 2.5em;
+        padding: 5px;
+        margin-bottom: 5px;
+    } 
+    
+    #question {
+        font-size: 2.7em;
+        margin: 40px;
+    }   
+
+    .option {
+        padding: 20px;
+        font-size: 2.6em;
+    }
+
+    #answer {
+        width: 90%;
+        padding: 20px;
+        font-size: 2.5em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        font-size: 2.5em;
+        padding: 20px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .instructionImageContainer{
+        width: 200px; 
+    }
+
+    .instruction-image{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .task-container {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .circuit-container {
+        width: 850px; 
+    }
+
+    .question-container{
+        margin-top: 20px;
+        width: 850px; 
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 160px;
+        height: 110px;
+        border-radius: 8px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 30px;
+        gap: 50px;
+    }
+    
+    .draggable {
+        width: 160px;
+        height: 90px;
+        padding-top: 20px;
+    }
+    
+    .draggable img {
+        width: 70%;
+    }
+  }
+
+  /* 4K экраны (ширина от 2561px и выше) */
+  @media (min-width: 2561px) {
+    h1, h2 {
+        margin: 3px;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 4.9em;
+    }
+    
+    h2 {
+        font-size: 4.3em;
+    }
+
+    .main-container {
+        max-width: 2100px;
+    }
+
+    #player-name {
+        width: 96%;
+        padding: 25px;
+        font-size: 3.8em;
+    }
+
+    #start-game, #view-records {
+        padding: 30px;
+        font-size: 3.8em;
+    }
+
+    .select-level-container {
+        gap: 20px;
+        max-width: 1850px;
+    }
+
+    #select-level {
+        width: 98%;
+        padding: 30px;
+        font-size: 3.8em;
+    }    
+
+    .level-container {
+        gap: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        width: 90%;
+        max-width: 2500px;
+    }   
+    
+    .level-title {
+        font-size: 4.3em;
+    }   
+
+    #timer, #score {
+        font-size: 3.3em;
+        padding: 15px;
+        margin-bottom: 15px;
+    }    
+
+    #question {
+        font-size: 3.7em;
+        margin: 60px;
+    }   
+
+    .option {
+        padding: 40px;
+        font-size: 3.5em;
+    }
+
+    #answer {
+        width: 90%;
+        padding: 30px;
+        font-size: 3.8em;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    button {
+        font-size: 3.8em;
+        padding: 30px;
+        margin-top: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border-radius: 20px;
+    }
+
+    .instructionImageContainer{
+        width: 300px; 
+    }
+
+    .instruction-image{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .task-container {
+        flex-direction: row;
+        gap: 80px;
+        margin-bottom: 50px;
+    }
+
+    .circuit-container {
+        width: 1200px; 
+    }
+
+    .question-container{
+        width: 1200px; 
+    }
+
+    .question-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .dropzone {
+        width: 250px;
+        height: 180px;
+        border-radius: 4px;
+    }
+    
+    
+    .draggable-elements {
+        margin-top: 50px;
+        gap: 160px;
+    }
+    
+    .draggable {
+        width: 250px;
+        height: 140px;
+        padding-top: 40px;
+    }
+    
+    .draggable img {
+        width: 70%;
+    }
+  }
