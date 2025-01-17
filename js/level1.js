@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = parseInt(localStorage.getItem('score')) || 0;
     let timeLeft = parseInt(localStorage.getItem('timeLeft')) || 60;
     let currentQuestionIndex = 0;
+    let selectedOptionIndex = 0; 
     let isPaused = false;
 
     timerElement.textContent = `Время: ${timeLeft}`;
@@ -55,22 +56,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         optionsElement.innerHTML = '';
         questionData.options.forEach((option, index) => {
-            const button = document.createElement('button');
+            const button = document.createElement('div');
             button.textContent = option;
             button.classList.add('option');
-            button.addEventListener('click', () => handleAnswer(index));
+            if (index === selectedOptionIndex) button.classList.add('selected');
             optionsElement.appendChild(button);
         });
     }
 
-    function handleAnswer(selectedIndex) {
+    function handleAnswer() {
         if (isPaused) return;
 
         const correctIndex = selectedQuestions[currentQuestionIndex].correct;
-        const selectedOption = optionsElement.children[selectedIndex];
-        const correctOption = optionsElement.children[correctIndex];
+        const options = optionsElement.children;
+        const selectedOption = options[selectedOptionIndex];
+        const correctOption = options[correctIndex];
 
-        if (selectedIndex === correctIndex) {
+        if (selectedOptionIndex === correctIndex) {
             score += 10;
             scoreElement.textContent = `Очки: ${score}`;
             scoreElement.style.color = 'green';
@@ -87,19 +89,40 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.disabled = false;
     }
 
+    function handleKeyDown(event) {
+        if (isPaused) return;
+
+        const options = optionsElement.children;
+
+        if ((event.key === 'ArrowRight') || (event.key === 'ArrowDown')){
+            selectedOptionIndex = (selectedOptionIndex + 1) % options.length;
+        } else if ((event.key === 'ArrowLeft') || (event.key === 'ArrowUp')) {
+            selectedOptionIndex = (selectedOptionIndex - 1 + options.length) % options.length;
+        } else if (event.key === 'Enter') {
+            handleAnswer();
+            return;
+        }
+
+        Array.from(options).forEach((option, index) => {
+            option.classList.toggle('selected', index === selectedOptionIndex);
+        });
+    }
+
     nextButton.addEventListener('click', () => {
         isPaused = false;
         scoreElement.style.color = '';
         nextButton.disabled = true;
 
         const options = document.querySelectorAll('.option');
-        options.forEach(option => {
+        options.forEach((option) => {
             option.style.border = '';
         });
 
         currentQuestionIndex++;
+        selectedOptionIndex = 0; 
         showQuestion();
     });
 
+    document.addEventListener('keydown', handleKeyDown);
     showQuestion();
 });

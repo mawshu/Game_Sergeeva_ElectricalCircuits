@@ -154,10 +154,13 @@ h1, h2 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.option:hover {
-    background: #45a049;
-    transform: scale(1.05);
+.option.selected {
+    background-color: rgba(0, 250, 50, 0.788);
+    border: 2px solid rgb(17, 53, 0);
 }
+
+
+
 
 .option:active {
     background: #388e3c;
